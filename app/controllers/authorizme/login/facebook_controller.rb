@@ -7,6 +7,7 @@ module Authorizme
         callback_url = params[:callback_url] || redirect_uri("facebook")        
         if params[:canvas]
           @authorize_url = @facebook.get_dialog_authorize_url callback_url, Authorizme::facebook_perms
+          @authorize_url.sub! '&amp;', '&'
         else
           redirect_to @facebook.get_popup_authorize_url callback_url, Authorizme::facebook_perms
         end
