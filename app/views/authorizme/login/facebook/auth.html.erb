@@ -1,4 +1,4 @@
 <script>
-  var oauth_url = "<%= @authorize_url %>";
+  var oauth_url = "<%= @authorize_url.sub! '&amp;', '&' %>";
   window.top.location = oauth_url.replace("&amp;","&");
 </script>
